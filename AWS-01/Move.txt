@@ -15,7 +15,6 @@ a. Login to Aws via command line as an IAM user :
 	aws s3 mv myDir s3://mybucket/ --recursive --exclude "*" --include "*.html"
 
 
-	
-	
+
 
 
