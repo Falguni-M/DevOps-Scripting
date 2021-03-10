@@ -12,3 +12,5 @@ In the remote machine :
 	Pulling centos docker image.
 
 	docker pull centos:7
+	
+The whole Automation can be done directly through Jenkins.
