@@ -1,0 +1,21 @@
+Shell script to move a static html files to AWS s3 bucket.
+
+a. Login to Aws via command line as an IAM user : 
+	
+	Copy Local files to AWS S3:
+
+	aws iam get-login-profile --user-name <name>
+	aws configure --profile <profile_name>
+	aws s3 cp <filename.html> s3://bucket_name/ --grants read=uri=<url_of_group> <emailaddress>
+        aws s3 cp <directory> s3://<bucket_name> --grants read=uri=<url_of_group> --recursive
+
+	Move Local files to AWS S3:
+	
+	aws s3 mv test.txt s3://mybucket/test2.txt  # Moving a single file
+	aws s3 mv myDir s3://mybucket/ --recursive --exclude "*" --include "*.html"
+
+
+	
+	
+
+
