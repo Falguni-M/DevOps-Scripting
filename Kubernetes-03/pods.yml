@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo
+spec:
+  containers:
+  - name: Centos
+    image: centos
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: <directory>
+      mountPath: <mount path>
+  - name: Debian
+    image: debian
+    volumeMounts:
+    - name: <directory>
+      mountPath: <mount path>
+
+
+To initialize the pod, run : kubectl apply -f pods.yaml
+To see the number of pods running : kubectl get pods

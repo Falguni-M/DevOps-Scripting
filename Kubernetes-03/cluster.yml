@@ -1,0 +1,30 @@
+1. Using Kubeadm and DIND for making a cluster (already configured scripts)
+
+wget -O dind-cluster.sh https://github.com/kubernetes-sigs/kubeadm-dind-cluster/releases/download/v0.2.0/dind-cluster-v1.14.sh 
+chmod +x dind-cluster.sh
+
+
+./dind-cluster.sh up (To start the cluster)
+
+  kubectl get nodes
+./dind-cluster.sh down (To stop the cluster)
+
+2. Not using preconfigured script 
+
+	The components on a node include: the kubelet 
+					  container runtime
+					  kube-proxy
+	apt-get update
+	apt-get install -y kubelet=1.15.4-00 kubeadm=1.15.4-00 kubectl=1.15.4-00 docker.io
+	kubeadm init
+
+	The Below command initializes the master
+	mkdir -p $HOME/.kube
+	sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+	sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+	To join the node:
+	kubeadm join --token <token> <url> --discovery-token-ca-cert-hash <sha token hash>
+
+	To see the nodes type:
+	kubectl get nodes
